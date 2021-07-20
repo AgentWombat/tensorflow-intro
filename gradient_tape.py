@@ -42,8 +42,9 @@ print("--MACHINE LEARNING--")
 # Here, we will create an example dataset.
 # (it is values for x and y such that y = 4*x + 5):
 
-# The odd syntax here creates an array with numbers 0-99, inclusive.
-x = tf.Variable([i for i in range(100)], dtype = 'float32')
+# The odd syntax here creates an array with numbers 0-1 with an interval of
+# 0.01
+x = tf.Variable([i*0.01 for i in range(100)], dtype = 'float32')
 y = 4*x + 5
 
 print("The first 10 elements of x:", x[:10])
@@ -89,7 +90,7 @@ for i in range(1000):
     # Update parameters
     # We multiple by a small number because it ensures that we do not
     # explode 'w' and 'b'.
-    learning_rate = 0.000001
+    learning_rate = 0.1
     w.assign(w - dw * learning_rate)
     b.assign(b - db * learning_rate)
 
