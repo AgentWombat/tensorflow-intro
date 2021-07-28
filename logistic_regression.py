@@ -99,7 +99,7 @@ def binary_crossentropy(y, y_hat):
     # Hint: Values in 'y' are either '1' or '0'.
     loss = -( y * tf.math.log(y_hat) + (1 - y) * tf.math.log(1 - y_hat) )
     
-    # Make metric resistant to changes in input size.
+    # Get average (sum all values in 'loss' and divide by number of values)
     loss = tf.reduce_mean(loss)
     return loss
 
